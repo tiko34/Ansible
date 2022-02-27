@@ -14,8 +14,8 @@
      
    - name:Config SSH
      lineinfile:
-                dest/etc/ssh/ssh_config
-                regexp:'#   Port 22'
+                dest=/etc/ssh/ssh_config
+                regexp='#   Port 22'
                 line='Port 1834'
                 state=present
                 
