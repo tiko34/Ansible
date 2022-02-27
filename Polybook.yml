@@ -3,10 +3,13 @@
   remote_user:root
   tasks:
    - name: Update Packet
-     become:yes
+     shell: apt-get update
+     
+   - name: Install Curl
+     become: yes
      apt: pkg=curl state=latest update_cache=true
      
-   - name Enable UFW
+   - name: Enable UFW and open port 80,8080,1834
      shell: service ufw start
      shell: ufw allow 80
      shell: ufw allow 8080
