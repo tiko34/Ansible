@@ -5,15 +5,26 @@
    - name: Update Packet
      become:yes
      apt: pkg=curl state=latest update_cache=true
-   - name Enabled UFW
+     
+   - name Enable UFW
      shell: service ufw start
      shell: ufw allow 80
      shell: ufw allow 8080
      shell: ufw allow 1834
+     
    - name:Config SSH
      lineinfile:
                 dest/etc/ssh/ssh_config
                 regexp:'#   Port 22'
                 line='Port 1834'
                 state=present
+                
+   - name: Restart SSH + UFW
+     shell: service ssh restart
+     shell: service ufw restart
+     
+   - name: Reboot machine
+     shell: reboot
+     
+     
                 
