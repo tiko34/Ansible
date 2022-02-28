@@ -15,7 +15,7 @@
      shell: ufw allow 8080
      shell: ufw allow 1834
      
-   - name:Config SSH
+   - name: Config SSH
      lineinfile:
                 dest=/etc/ssh/ssh_config
                 regexp='#   Port 22'
