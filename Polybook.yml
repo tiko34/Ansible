@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  remote_user:root
+  remote_user: root
   tasks:
    - name: Update Packet
      shell: apt-get update
